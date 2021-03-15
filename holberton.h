@@ -1,0 +1,21 @@
+#ifndef HOLBERTON_H
+#define HOLBERTON_H
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+/**
+ * struct ch_fmt - sees if the format matches
+ * @c: the char of the format
+ * @f: function to make
+ */
+typedef struct ch_fmt
+{
+	char c;
+	int (*f)(va_list, char *, int);
+} fmt_type;
+
+int _printf(const char * const format, ...);
+
+#endif
