@@ -11,9 +11,7 @@ int _printf(const char * const format, ...)
 {
 	int i = 0, j = 0, pos_wrt = 0;
 	char buffer[1024];
-	fmt_type match[] = {{'c', print_char}, {'s', print_string},
-	{'i', print_int}, {'d', print_int}, {'u', print_u_int},
-	{'b', print_binary}, {'o', print_octal}, {'\0', NULL}};
+	fmt_type match[] = {{'c', print_char}, {'s', print_string},{'\0', NULL}};
 	va_list args_l;
 
 	va_start(args_l, format);
