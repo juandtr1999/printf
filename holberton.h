@@ -18,18 +18,12 @@ typedef struct ch_fmt
 
 int _printf(const char * const format, ...);
 
+int find_match(char format_c, va_list args_l, char *buffer, int index);
+
 int print_char(va_list a, char *buffer, int index);
 
 int print_string(va_list a, char *buffer, int index);
 
 int len_str(char *n);
-
-int print_int(va_list a, char *buffer, int index);
-
-int len_dig(int num);
-
-int print_u_int(va_list a, char *buffer, int index);
-
-int len_u_dig(unsigned int num);
 
 #endif
