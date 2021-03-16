@@ -24,10 +24,11 @@ int print_char(va_list a, char *buffer, int index);
 
 int print_string(va_list a, char *buffer, int index);
 
+<<<<<<< HEAD
 int len_str(char *n);
 
 int print_int(va_list a, char *buffer, int index);
 
-int len_dig(int num);
-
+=======
+>>>>>>> 782238823d0c90d4bfaf76ddea42000b09c271cc
 #endif
