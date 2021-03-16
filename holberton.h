@@ -24,6 +24,4 @@ int print_char(va_list a, char *buffer, int index);
 
 int print_string(va_list a, char *buffer, int index);
 
-int len_str(char *n);
-
 #endif
