@@ -1,29 +1,44 @@
 #include "holberton.h"
 /**
- * find_match - Look for the function to perform.
+ * find_m - Look for the function to perform.
  *
- * @format_c: The caracter to find.
- * @args_l: List to take argtument
- * @buffer: buffer to print.
- * @index: Position buffer carry on.
- *
+ * @fmt: The caracter to find.
+ * @list: List to take argtument
+ * @buff: buffer to print.
+ * @p: Position buffer carry on.
+ * @i: Format index.
  * Return: Number of caracters written.
-*/
-int find_match(char format_c, va_list args_l, char *buffer, int index)
+ */
+
+int find_m(const char * const fmt, va_list list, char *buff, int p, int *i)
 {
 	fmt_type match[] = {{'c', print_char}, {'s', print_string}, {'\0', NULL}};
 	int j = 0;
 
 	while (match[j].c)
 	{
-	if (format_c == match[j].c)
+		if (fmt[*i] == match[j].c)
+		{
+			p += match[j].f(list, buff, p);
+			return (p);
+		}
+		j++;
+	}
+	if (fmt[*i] == 0)
+		return (-1);
+	else if (fmt[*i] == '%')
 	{
-	index += match[j].f(args_l, buffer, index);
-	break;
+		buff[p] = '%';
+		return (p + 1);
 	}
-	j++;
+	else if (fmt[*i] == 32)
+	{
+		*i += 1;
+		return (find_m(fmt, list, buff, p, i));
 	}
-	return (index);
+	buff[p] = '%';
+	buff[p + 1] = fmt[*i];
+	return (p + 2);
 }
 
 /**
@@ -32,33 +47,33 @@ int find_match(char format_c, va_list args_l, char *buffer, int index)
  * @format: The text to write.
  * Return: Number of caracters written.
 */
+
 int _printf(const char * const format, ...)
 {
 	int i = 0, pos_wrt = 0;
 	char buffer[1024];
 	va_list args_l;
+	int *i_ptr = &i;
 
 	va_start(args_l, format);
-
 	if (format == NULL)
 		return (-1);
-
 	while (format && format[i])
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == 0)
-				return (-1);
-			pos_wrt = find_match(format[i + 1], args_l, buffer, pos_wrt);
 			i++;
+			pos_wrt = find_m(format, args_l, buffer, pos_wrt, i_ptr);
+			if (pos_wrt == -1)
+				return (-1);
+			i++;
+			continue;
 		}
-		else
-		{
-			buffer[pos_wrt] = format[i];
-			pos_wrt++;
-		}
+		buffer[pos_wrt] = format[i];
+		pos_wrt++;
 		i++;
 	}
 	write(1, buffer, pos_wrt);
 	return (pos_wrt);
 }
+

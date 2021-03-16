@@ -18,7 +18,7 @@ typedef struct ch_fmt
 
 int _printf(const char * const format, ...);
 
-int find_match(char format_c, va_list args_l, char *buffer, int index);
+int find_m(const char * const fmt, va_list list, char *buff, int p, int *i);
 
 int print_char(va_list a, char *buffer, int index);
 
