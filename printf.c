@@ -12,7 +12,8 @@
 
 int find_m(const char * const fmt, va_list list, char *buff, int p, int *i)
 {
-	fmt_type match[] = {{'c', print_char}, {'s', print_string}, {'\0', NULL}};
+	fmt_type match[] = {{'c', print_char}, {'s', print_string}, {'i', print_int},
+	{'d', print_int}, {'\0', NULL}};
 	int j = 0;
 
 	while (match[j].c)
