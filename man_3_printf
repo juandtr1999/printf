@@ -1,0 +1,192 @@
+.SH NAME
+.B _printf
+- formatted output conversion
+.SH SYNOPSIS
+
+     the printf () and vprintf () functions write the output to stdout, the standard output stream; fprintf () and
+            vfprintf () writes the output to the given output stream; sprintf (), snprintf (), vsprintf () and vsnprintf ()
+	           write to the string str.
+		     The dprintf () function is the same as fprintf (3) except that it outputs a file descriptor, fd,
+		            instead of to a stdio stream.
+
+       The snprintf () and vsnprintf () functions write maximum bytes in size (including the termination null
+              byte ('\ 0')) to str.
+
+       The functions vprintf (), vfprintf (), vdprintf (), vsprintf (), vsnprintf () are equivalent to the function
+              tions printf (), fprintf (), dprintf (), sprintf (), snprintf (), respectively, except they are
+	             called with a va_list instead of a variable number of arguments. These functions do not call
+		            macro va_end. Because they invoke the va_arg macro, the value of ap is undefined after the call.
+			           See standard (3).
+
+.SH DESCRIPTION
+
+ The _printf function is a variable function that receives as a formal argument a constant char pointer "fortmat", writes its characters "exactly the same" in the standard output using the write function and returns an integer, which is the number of characters that were sent. to stdout without taking null characters into account.
+
+Use format specifiers to give specific instructions of what you want to write. The% specifier allows you to give the location and the type of data you want to write in the stdout (table 1.), this allows us to write in the stdout variatic arguments of different data types, which are received by the function after " format ".
+
+| % c | Prints a character type data.
+| % s | Print a data type puter to character.
+| % d | Prints an integer data type.
+| % i | Prints an integer data type.
+Table 1.
+
+function print characters.
+to print characters the _printf () function must first receive the% c specifier that calls the print_char function, this function saves the character in a char type variable. After saving it, in write we create a pointer variable type char and we give it the memory address of the variable char where we had saved our character.
+
+char caracter = 'A'
+_print("%c", caracter)
+stdout A
+
+String functions string:
+Character strings (also called strings) are a particular type of vectors, which as their name says are vectors of type (char) with the specification at the end of itself (the character '\ 0'), example: (char hello_string [] = "Hello";) (char other_hello [] = {'H', 'o', 'l', 'a', '\ 0'}; // Same as above char vector [] = {' H ',' o ',' l ',' a '}; / * A vector of 4 elements,).
+
+Function write integer:
+To print integers the function _printf () must make a conversion of each digit of the integer to a character, it does so by calling the internal function print_int, this calculates the number of digits of the integer to allocate a memory space with the same amount in bytes to a "variable" pointer to char, and to each position it assigns an integer digit in the corresponding position. Once this part is done, it writes to the stdout of this "variable", frees the allocated memory and returns the number of digits written.
+
+The _printf function writes output to
+.I stdout
+produced according to
+.I formats
+as described below.
+
+.B Return value
+.br
+.RS 3
+Upon successful return, these functions return the number of characters
+printed (excluding the null byte used to end output to strings).
+.RE
+
+.B The conversion specifier
+.br
+.RS 3
+A character that specifies the type of conversion to be applied. The
+conversion specifiers and their meanings are:
+.TP
+.B d, i
+When you pass it an integer, it prints its correspondent ascii character
+for every digit. You may pass to it possitive and negative numbers..LP
+.TP
+.B o
+ When you pass to it an integer it converts integers in 10 base to base 8
+   and prints  its correspondent ascii character for every digit.
+     .LP
+       .TP
+         .B c
+	    Prints chars.
+	       .LP
+	          .TP
+		     .B s
+		        The \fIconst char *\fR argument is expected to be a pointer to an array
+			   The \fIconst char *\fR argument is expected to be a pointer to an array
+			      of character type (pointer to a string). Characters from the array are
+			         written up to (but not including) a terminating null byte ('\0').
+				    .LP
+				       .TP
+				          .B h
+					     When you pass to it an integer it converts integers in 10 base to base 16
+					        and prints  its correspondent ascii character for every digit.
+						   and prints the letters in lowercase.
+
+.LP
+.TP
+.B H
+When you pass to it an integer it converts integers in 10 base to base 16
+and prints  its correspondent ascii character for every digit.
+and prints the letters in uppercase.
+
+
+The format
+The FORMAT is a string that will have certain "expressions" that will describe how perl should sort and display the values ​​you put in VALUES. Each of these "expressions" begins with a% symbol.
+
+A typical FORMAT string might look like this:
+
+My number is:% d
+Here the% d is an expression that means "a number", so perl would replace it with some decimal number. For example you could say the following:
+
+printf ("My number is:% d", $ decimal)
+So the% d in this function is replaced by the value of the variable $ decimal. You can put as many "expressions" as you want in FORMAT, with the same number of VALUES. For example:
+
+printf ("% d% s% f", $ decimal, $ string, $ float);
+"Expressions" in the FORMAT
+
+Here is the list of "expressions" that we can use in our FORMAT string.
+
+%% Prints a% sign.
+% c prints a character with the given ASCII code (with 66 prints B, for example).
+% s a string
+% d a decimal
+% u an unsigned negative or positive decimal
+% or an integral in octal
+% x an integral in hexadecimal
+% e a floating point number in scientific notation
+% f a floating point number in decimal notation
+% g can be% e or% f, whichever printf decides which is best
+% X the same as% x but with uppercase
+% E as% e but with a capital 'E'
+% G the same as% E when using scientific notation
+% p a "pointer"; print the memory location of a variable in hexadecimal
+% n prints the number of characters displayed so far
+
+Other "expressions" that exist for compatibility:
+
+% i the same as% d
+% D the same as% ld (long decimal)
+% U same as% lu (unsigned long decimal)
+% Or the same as% lo (long octal)
+% F the same as% f
+
+Printf examples:
+An example of the printf function. Many programming languages ​​implement a
+function printf (print formatted), to display a formatted string. It, originally from the C programming language, has a prototype similar to the following: int printf (const char * format, ...) The constant string format provides a description of the output
+
+printf (user_name); / * Danger! If user_name contains "% s", program will crash * /
+
+printf ("% s", user_name);
+
+printf ("% .0d", 0); / * No characters output * /
+printf ("%. * f", 3, 3.14159265); / * 3,142 output * /
+
+int num = 12;
+int num2 = 12345;
+printf ("% d \ n", num2);
+printf ("% 5d \ n", num);
+
+we want to print the string stored in char string [30]; with the printf function:
+
+We have to use printf ("% s \ n", string);
+
+FORMAT specifiers
+Each of the specifiers below are optional and must be used in the order they appear here. If this is very confusing, I recommend that you go to the next section, as this is simply for reference.
+
+% - The percent sign. required (logically)
+
+0 or more of the following specifiers:
+
+'#' (cat symbol): Specifies that the value should be converted to an "alternate form". This has no effect on 'c', 'd', 'i', 'n', 'p', 's', and the expression 'u'. For the expression 'o' (octal), this puts a '0' at the beginning. For 'x' and 'X' (hexadecimal), 0x or 0X is set to the beginning. For 'e', ​​'E', 'f', 'g' and 'G', the value is always set with a decimal point (.) At the beginning, even when there are no names. For 'g' and 'G', the trailing zeros are not removed.
+
+printf ("% x", 10); # prints 'a', while:
+printf ("% # x", 10); # prints '0xa'
+'0' (zero): To remove the padding from a number. The number is converted to a number with the required 0 amount to the right.
+
+printf ("% 03d", 7); # prints '007'
+printf ("% 03d", 153); # prints '153'
+'-' (minus): Specifies that the value will be adjusted to the right, while it is normally to the left.
+
+printf ("% 5s", 'foo'); # print 'foo'
+printf ("% - 5s", 'foo'); # print 'foo'
+'' (a space): Specifies that a space must be left before a positive number.
+
+printf ("% d", 7); # prints '7'
+printf ("% d", -7); # prints '-7'
+'+' (plus sign): Specifies that this value should always be placed before the value.
+
+printf ("% + d", 7); # prints '+7'
+. (one point) The precision point followed by a number specifies the number of numbers to print for 'd', 'i', 'o', 'u', 'x', and 'X' expressions. For expressions 'e', ​​'E', and 'F', it is the number of digits to display after the decimal number. For 'g' and 'G' the maximum number of significant characters. For the string expression 's', it is the maximum number of characters to display.
+
+printf ("%. 3d", 7); # prints '007'
+printf ("%. 2f", 3.66666); # prints '3.66'
+printf ("%. 3s", 'foobar'); # print 'foo'
+more about the source text Font text is required for additional information on translation
+Send feedback
+Side panels
+by Jodan Bonnett Nicolas Castillo Juan David trujillo
