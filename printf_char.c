@@ -51,12 +51,13 @@ int len_str(char *n)
 int print_string(va_list a, char *buffer, int index)
 {
 	char *string = va_arg(a, char *);
+	int length = 0;
+	int i;
 
 	if (string == NULL)
 		string = "(null)";
 
-	int length = len_str(string);
-	int i;
+	length = len_str(string);
 
 	for (i = 0; i < length; i++)
 	{
