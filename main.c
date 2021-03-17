@@ -7,8 +7,8 @@
  *
  * Return: Always 0
  */
-int main(void) {
-
+int main(void)
+{
 	int x1, x2, len, len2;
 	_printf("Let's try to printf a simple sentence.\n");
 	printf("Let's try to printf a simple sentence.\n");

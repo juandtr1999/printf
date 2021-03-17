@@ -28,5 +28,6 @@ int print_int(va_list a, char *buffer, int index);
 
 int len_dig(long int num);
 
-unsigned int decimal = va_arg(a, unsigned int);
+int find_match(char format_c, va_list args_l, char *buffer, int index)
+
 #endif
