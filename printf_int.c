@@ -7,9 +7,10 @@
 * @num: The number to measure.
 * Return: The number of digits that num has.
 */
-int len_dig(int num)
+int len_dig(long int num)
 {
-	int sum = 11, digitos = 0;
+	long int sum = 11;
+	int digitos = 0;
 
 	if (num < 0)
 	{
@@ -45,36 +46,39 @@ int len_dig(int num)
 int print_int(va_list a, char *buffer, int index)
 {
 	int num = va_arg(a, int);
-	int len, i = 0, ctrl = 0;
+	int len, i = 0;
 	char *convert;
 
+	num = (long int)num;
 	len = len_dig(num);
-
 	convert = malloc(len);
-
-	if (num < 0)
-	{
-		num = -num;
-		convert[0] = '-';
-		ctrl = 1;
-	}
 
 	i = len;
 
-	while (i > ctrl)
+	if (num < 0)
 	{
-		convert[i - 1] = (num % 10) + '0';
-		num = num / 10;
-		i--;
+		convert[0] = '-';
+		while (i > 1)
+		{
+			convert[i - 1] = ((num % 10) * -1) + '0';
+			num = num / 10;
+			i--;
+		}
 	}
-
+	else
+	{
+		while (i > 0)
+		{
+			convert[i - 1] = (num % 10) + '0';
+			num = num / 10;
+			i--;
+		}
+	}
 	for (i = 0; i < len; i++)
 	{
 		buffer[index] = convert[i];
 		index++;
 	}
-
 	free(convert);
-
 	return (len);
 }

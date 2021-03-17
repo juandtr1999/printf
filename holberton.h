@@ -26,6 +26,6 @@ int print_string(va_list a, char *buffer, int index);
 
 int print_int(va_list a, char *buffer, int index);
 
-int len_dig(int num);
+int len_dig(long int num);
 
 #endif
