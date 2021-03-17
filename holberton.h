@@ -26,6 +26,16 @@ int print_string(va_list a, char *buffer, int index);
 
 int print_int(va_list a, char *buffer, int index);
 
-int len_dig(int num);
+int len_dig(long int num);
+
+int print_u_int(va_list a, char *buffer, int index);
+
+int print_binary(va_list a, char *buffer, int index);
+
+int print_octal(va_list a, char *buffer, int index);
+
+int print_x_hexal(va_list a, char *buffer, int index);
+
+int print_X_hexal(va_list a, char *buffer, int index)
 
 #endif
