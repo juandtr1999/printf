@@ -10,7 +10,6 @@
 int len_dig(int num)
 {
 	int sum = 11, digitos = 0;
-
 	if (num < 0)
 	{
 		digitos += 1;
