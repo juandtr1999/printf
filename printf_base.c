@@ -17,12 +17,12 @@ int print_binary(va_list a, char * buffer, int index)
     tmp /= 2;
     i++;
   }
- 
+
   k = malloc(i);
-  
+
   if(k == 0)
     return (0);
-    
+
   i = 0;
   while(decimal > 0)
   {
@@ -37,29 +37,29 @@ int print_binary(va_list a, char * buffer, int index)
         index += 1;
     }
   free (k);
-  return (i); 
+  return (i);
 }
 
 int print_octal(va_list a, char * buffer, int index)
 {
-    
+
   unsigned int octal = va_arg(a, unsigned int);
-  
-  int i = 0, j, l; 
+
+  int i = 0, j, l;
   int *k;
   unsigned int tmp = octal;
-  
+
   while(tmp > 0)
   {
     tmp /= 8;
     i++;
   }
-  
+
   k = malloc(i);
-  
+
   if(k == 0)
     return (0);
-    
+
   i = 0;
   while(octal > 0)
   {
@@ -67,29 +67,93 @@ int print_octal(va_list a, char * buffer, int index)
     octal /= 8;
     i++;
   }
-  
+
   for(j = i - 1; j >= 0; --j, l++)
     {
         buffer[index] = k[j] + '0';
         index += 1;
     }
   free (k);
-  return (i); 
+  return (i);
 }
 
 
 int print_x_hexal(va_list a, char * buffer, int index)
 {
-    
+
   unsigned int hexal = va_arg(a, unsigned int);
-  
-  int i = 0, j, l; 
+
+  int i = 0, j, l;
   int *k;
   unsigned int tmp = hexal;
-  
+
   while(tmp > 0)
   {
     tmp /= 16;
     i++;
   }
-  
+
+  k = malloc(i);
+
+  if(k == 0)
+    return (0);
+
+  i = 0;
+  while(hexal > 0)
+  {
+    k[i] = hexal % 16;
+    hexal /= 16;
+    i++;
+  }
+
+  for(j = i - 1; j >= 0; --j, l++)
+    {
+        if (k[j] <= 9)
+            buffer[index] = k[j] + '0';
+        else
+            buffer[index] = k[j] + 87;
+        index += 1;
+    }
+  free (k);
+  return (i);
+}
+
+int print_X_hexal(va_list a, char * buffer, int index)
+{
+
+  unsigned int hexal = va_arg(a, unsigned int);
+
+  int i = 0, j, l;
+  int *k;
+  unsigned int tmp = hexal;
+
+  while(tmp > 0)
+  {
+    tmp /= 16;
+    i++;
+  }
+
+  k = malloc(i);
+
+  if(k == 0)
+    return (0);
+
+  i = 0;
+  while(hexal > 0)
+  {
+    k[i] = hexal % 16;
+    hexal /= 16;
+    i++;
+  }
+
+  for(j = i - 1; j >= 0; --j, l++)
+    {
+        if (k[j] <= 9)
+            buffer[index] = k[j] + '0';
+        else
+            buffer[index] = k[j] + 55;
+        index += 1;
+    }
+  free (k);
+  return (i);
+}
