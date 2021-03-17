@@ -30,21 +30,12 @@ int len_dig(long int num);
 
 int print_u_int(va_list a, char *buffer, int index);
 
-<<<<<<< HEAD
-=======
-int len_u_dig(unsigned int num);
-
->>>>>>> af4f0021f193be3c62d6b4d0d10751c48b5c741e
 int print_binary(va_list a, char *buffer, int index);
 
 int print_octal(va_list a, char *buffer, int index);
 
 int print_x_hexal(va_list a, char *buffer, int index);
 
-<<<<<<< HEAD
-int print_X_hexal(va_list a, char *buffer, int index)
-=======
 int print_X_hexal(va_list a, char *buffer, int index);
->>>>>>> af4f0021f193be3c62d6b4d0d10751c48b5c741e
 
 #endif

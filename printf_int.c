@@ -9,13 +9,7 @@
 */
 int len_dig(long int num)
 {
-<<<<<<< HEAD
 	int sum = 11, digitos = 0;
-=======
-	long int sum = 11;
-	int digitos = 0;
-
->>>>>>> 304e27705f0e80e89d84fd27e0256e036dbba299
 	if (num < 0)
 	{
 		digitos += 1;
