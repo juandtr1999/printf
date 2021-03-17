@@ -6,7 +6,7 @@
 
 .SH SYNOPSIS
 
-The fuctions _printf transports data from memory to thr screen. 
+The fuctions _printf transports data from memory to thr screen.
 ------------------------------------------------------------------
 int print_char(va_list a, char *buffer, int index):
 
@@ -22,7 +22,7 @@ int _printf(const char * const format, ...):
 printf - Write a format in the standar out. See man_3_printf format The text to write Return: Number of caracters written.
 ----------------------------------------------------------------------------------------
 
-Description 
+Description
 
 _PRINTF
 
@@ -45,7 +45,7 @@ char character = 'A'
 _print ("% c", character)
 stdout A
 
-  
+
 String functions string:
 Strings of characters (also called strings) are a particular type of vectors, which as their name says are vectors of type (char) with the specification at the end of itself (the character '\ 0'), example: (char hello_string [] = "Hello";) (char other_hello [] = {'H', 'o', 'l', 'a', '\ 0'}; // Same as above char vector [] = {' H ',' o ',' l ',' a '}; / * A vector of 4 elements,).
 
@@ -66,7 +66,7 @@ the octal number in the correct order. free up the wild memory and return the nu
 
 unsigned int octal = 45678;
 _print ("% b", binary);
-stdout 131156; 
+stdout 131156;
 
 
 
@@ -212,7 +212,7 @@ printf ("% + d", 7); # prints '+7'
 
 printf ("%. 3d", 7); # prints '007'
 printf ("%. 2f", 3.66666); # prints '3.66'
-printf ("%. 3s", 'foobar'); # print 'foo' 
+printf ("%. 3s", 'foobar'); # print 'foo'
 more about the source text Font text is required for additional information on translation
 Send feedback
 Side panels

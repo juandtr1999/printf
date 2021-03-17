@@ -14,7 +14,7 @@ SH NAME
 
 .SH SYNOPSIS
 
-The fuctions _printf transports data from memory to thr screen. 
+The fuctions _printf transports data from memory to thr screen.
 ------------------------------------------------------------------
 int print_char(va_list a, char *buffer, int index):
 
@@ -30,7 +30,7 @@ int _printf(const char * const format, ...):
 printf - Write a format in the standar out. See man_3_printf format The text to write Return: Number of caracters written.
 ----------------------------------------------------------------------------------------
 
-Description 
+Description
 
 _PRINTF
 
@@ -53,7 +53,7 @@ char character = 'A'
 _print ("% c", character)
 stdout A
 
-  
+
 String functions string:
 Strings of characters (also called strings) are a particular type of vectors, which as their name says are vectors of type (char) with the specification at the end of itself (the character '\ 0'), example: (char hello_string [] = "Hello";) (char other_hello [] = {'H', 'o', 'l', 'a', '\ 0'}; // Same as above char vector [] = {' H ',' o ',' l ',' a '}; / * A vector of 4 elements,).
 
@@ -75,119 +75,3 @@ the octal number in the correct order. free up the wild memory and return the nu
 unsigned int octal = 45678;
 _print ("% b", binary);
 stdout 131156;.
-
-Principal functions:
-
-int print_char(va_list a, char *buffer, int index)
-{
-	char caracter = va_arg(a, int);
-
-	buffer[index] = caracter;
-
-	return (1);
-}
-
-every time I compile the _printf ("% c", 'h') program it prints the h character
-how it works: where this% C inside the quotes, this is the buffer index is the buffer size and it is initialized with va_list and returns it in this case to a (1)
-
-
-int print_string(va_list a, char *buffer, int index)
-{
-	char *string = va_arg(a, char *);
-	int i;
-
-	if (string == NULL)
-		string = "(null)";
-
-	for (i = 0; string[i]; i++)
-	{
-		buffer[index] = string[i];
-		index++;
-	}
-	return (i);
-}
-
-This logic is literally the same as the one seen above, they have the same functionality, the difference is that it prints string (character strings)
-
-
-int print_binary(va_list a, char *buffer, int index)
-{
-	unsigned int decimal = va_arg(a, unsigned int);
-
-	int i = 0, j, l;
-	int *k;
-	unsigned int tmp = decimal;
-
-	while (tmp > 0)
-	{
-		tmp /= 2;
-		i++;
-	}
-
-	k = malloc(i);
-
-	if (k == 0)
-		return (0);
-
-	i = 0;
-	while (decimal > 0)
-	{
-		k[i] = decimal % 2;
-		decimal /= 2;
-		i++;
-	}
-
-	for (j = i - 1; j >= 0; --j, l++)
-	{
-		buffer[index] = k[j] + '0';
-		index += 1;
-	}
-	free(k);
-	return (i);
-} 
-
-The next function is used to print a decimal number, example: 8 converts it to base 2 (binary) and uses the method of dividing its base by 2 to give us a result.
-
-
-nt print_int(va_list a, char *buffer, int index)
-{
-	int num = va_arg(a, int);
-	int len, i = 0;
-	char *convert;
-
-	num = (long int)num;
-	len = len_dig(num);
-	convert = malloc(len);
-
-	i = len;
-
-	if (num < 0)
-	{
-		convert[0] = '-';
-		while (i > 1)
-		{
-			convert[i - 1] = ((num % 10) * -1) + '0';
-			num = num / 10;
-			i--;
-		}
-	}
-	else
-	{
-		while (i > 0)
-		{
-			convert[i - 1] = (num % 10) + '0';
-			num = num / 10;
-			i--;
-		}
-	}
-	for (i = 0; i < len; i++)
-	{
-		buffer[index] = convert[i];
-		index++;
-	}
-	free(convert);
-	return (len);
-} 
-
-
-In this function we save the result or be it an integer or any number on occasions we will get "1" this number, this is a number in quotes or a char that char we have to convert to an integer therefore it is divided by the bas um = num / 10;
