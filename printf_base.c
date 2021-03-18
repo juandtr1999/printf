@@ -11,8 +11,14 @@ int print_binary(va_list a, char *buffer, int index)
 	unsigned int decimal = va_arg(a, unsigned int);
 
 	int i = 0, j, l;
-	int *k;
+	unsigned int *k;
 	unsigned int tmp = decimal;
+
+	if (tmp == 0)
+	{
+		buffer[i] = '0';
+		return (1);
+	}
 
 	while (tmp > 0)
 	{
@@ -20,7 +26,7 @@ int print_binary(va_list a, char *buffer, int index)
 		i++;
 	}
 
-	k = malloc(i);
+	k = malloc(sizeof(unsigned int) * i);
 
 	if (k == 0)
 		return (0);
@@ -55,8 +61,14 @@ int print_octal(va_list a, char *buffer, int index)
 	unsigned int octal = va_arg(a, unsigned int);
 
 	int i = 0, j, l;
-	int *k;
+	unsigned int *k;
 	unsigned int tmp = octal;
+
+	if (tmp == 0)
+	{
+		buffer[i] = '0';
+		return (1);
+	}
 
 	while (tmp > 0)
 	{
@@ -64,7 +76,7 @@ int print_octal(va_list a, char *buffer, int index)
 		i++;
 	}
 
-	k = malloc(i);
+	k = malloc(sizeof(unsigned int) * i);
 
 	if (k == 0)
 		return (0);
@@ -98,20 +110,22 @@ int print_octal(va_list a, char *buffer, int index)
 */
 int print_x_hexal(va_list a, char *buffer, int index)
 {
-
 	unsigned int hexal = va_arg(a, unsigned int);
-
 	int i = 0, j, l;
-	int *k;
+	unsigned int *k;
 	unsigned int tmp = hexal;
 
+	if (tmp == 0)
+	{
+		buffer[i] = '0';
+		return (1);
+	}
 	while (tmp > 0)
 	{
 		tmp /= 16;
 		i++;
 	}
-
-	k = malloc(i);
+	k = malloc(sizeof(unsigned int) * i);
 
 	if (k == 0)
 		return (0);
@@ -147,20 +161,22 @@ int print_x_hexal(va_list a, char *buffer, int index)
 
 int print_X_hexal(va_list a, char *buffer, int index)
 {
-
 	unsigned int hexal = va_arg(a, unsigned int);
-
 	int i = 0, j, l;
-	int *k;
+	unsigned int *k;
 	unsigned int tmp = hexal;
 
+	if (tmp == 0)
+	{
+		buffer[i] = '0';
+		return (1);
+	}
 	while (tmp > 0)
 	{
 		tmp /= 16;
 		i++;
 	}
-
-	k = malloc(i);
+	k = malloc(sizeof(unsigned int) * i);
 
 	if (k == 0)
 		return (0);
