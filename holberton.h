@@ -28,8 +28,6 @@ int print_int(va_list a, char *buffer, int index);
 
 int len_dig(long int num);
 
-int find_match(char format_c, va_list args_l, char *buffer, int index)
-
 int print_u_int(va_list a, char *buffer, int index);
 
 int print_binary(va_list a, char *buffer, int index);
@@ -38,5 +36,6 @@ int print_octal(va_list a, char *buffer, int index);
 
 int print_x_hexal(va_list a, char *buffer, int index);
 
-unsigned int decimal = va_arg(a, unsigned int);
+int print_X_hexal(va_list a, char *buffer, int index);
+
 #endif

@@ -3,7 +3,7 @@
 
 
 
-#_printf
+# _printf
 
 This repository contains our version of the printf function available in the C language standard input / output library. To learn more about the original function you can consult the article at the following link: [Secrets of "printf"](https://www.cypress.com/file/54761/download)
 
@@ -11,7 +11,7 @@ This repository contains our version of the printf function available in the C l
 
 [TOC]
 
-#Description
+# Description
 
 The _printf function is a variatic function that receives as a formal argument a const char const pointer "fortmat", writes its characters "exactly the same" in the standard output using the write function and returns an integer, which is the number of characters that were sent. to stdout without taking null characters into account.
 
@@ -22,7 +22,7 @@ Use format specifiers to give specific instructions of what you want to write. T
 | %c | Prints a character type data.
 | %s | Print a data type char puter to character.
 | %d | Prints an integer data type.
-| %i  | Prints an integer data type.
+| %i | Prints an integer data type.
 | %u | prints an integer unsigned data.
 | %b | prints an integer convert to binary format.
 | %o | prints an integer convert to octal format.
@@ -30,15 +30,15 @@ Use format specifiers to give specific instructions of what you want to write. T
 | %X | prints an integer convert to hexadecimal format, letters upper case.
 
 
-#Files
+# Files
 
-###printf.c
+### printf.c
 
 In this file are our two main functions which are ** _ printf ** and ** find_m **.
 The function ** _ printf ** prints character by character everything that is found in the format; When it finds a %, it calls the find_m function
 The ** find_m ** function creates an array of structures type fmt_type, then finds the function to call according to the match it finds between the structure and what is specified by the user.
 
-###printf_int.c
+### printf_int.c
 
 This file contains the functions ** len_u_dig, print_u_int, len_dig, print_int **.
 - The  function** print_int ** converts each digit of an integer into characters and places them in a buffer array from the indicated position.
@@ -46,14 +46,14 @@ This file contains the functions ** len_u_dig, print_u_int, len_dig, print_int *
 - The funcion **print_u_int** Converts each digit of an unsigned integer to characters and places them in a buffer array from the indicated position.
 - The funcion **len_u_dig**  calculates the number of digits that an unsigned int data contains.
 
-###printf_char.c
+### printf_char.c
 
 In this file the functions ** print_char, len_str, print_string are found. **
 - The ** print_char ** function places a character in a buffer array at the indicated position.
 - The ** len_str ** function calculates the number of characters that a char data contains.
 - The ** print_string ** function converts the entire string into characters and places them in an array buffer from the indicated position.
 
-###printf_base.c
+### printf_base.c
 In this file are the functions ** print_binary, print_octal, print_x_hexal, print_X_hexal **
 - The ** print_binary ** function converts an unsigned integer into binary, passes them as characters and places them in a buffer array from the indicated position.
 - The function ** pritnt_octal ** converts an unsigned integer into octal, passes them as characters and places them in a buffer array from the indicated position.
@@ -61,11 +61,11 @@ In this file are the functions ** print_binary, print_octal, print_x_hexal, prin
 - The ** print_x_hexal ** function converts an unsigned integer into hexadecimal, passes them as characters and places them in a buffer array from the indicated position. Here the letters a-f are placed in lowercase.
 
 
-###holberton.h
+### holberton.h
 
 en el archivo **holberton.h** encontramos todos los prototipos de las funcionas antes mencionadas y la estructura de tipo fmt_type.
 
-#Functions
+# Functions
 
 The _print function prototype is the next:
 **int _printf(const char * const format, ...)**
@@ -80,18 +80,19 @@ To avoid call the write function constantly the function use a buffer, that its 
 ![flujo](https://imagizer.imageshack.com/img923/6641/IOrjvc.jpg "flujo")
 
 
-**Function print_characters.**
-to print characters the _printf () function must first receive the% c specifier that calls the print_char function, this function saves the character in a char type variable. After saving it, copies this character in the buffer and return 1. 
+### **Function print_characters.**
 
-The print_char function prototype is the next:
+to print characters the _printf () function must first receive the% c specifier that calls the print_char function, this function saves the character in a char type variable. After saving it, copies this character in the buffer and return 1.
+
+The print_char function prototype is the next
 **int print_char(va_list a, char *buffer, int index);**
 
 char character = 'A';
 _print ("%c", character);
-stdout: 
+stdout:
   A
 
-**Functions print_string:**
+### **Functions print_string:**
 To print integers the function  _printf  must make a conversion from the string to characters, it does so by calling the internal function print_string, which runs through the string given as a variatic argument and assigns each character of it in a position of the buffer, then returns the number of positioned characters.
 
 The print_string function prototype is the next:
@@ -99,11 +100,11 @@ The print_string function prototype is the next:
 
 char string = "Holberton";
 _print ("% s",  string);
-stdout: 
+stdout:
   Holberton
 
-**Function print_int:**
-To print integers the function _printf () must make a conversion of each digit of the integer to a character, it does so by calling the internal function print_int, this calculates the number of digits of the integer to allocate a memory space with the same amount in bytes to a "variable" pointer to char, and to each position it assigns an integer digit in the corresponding position. Once this part is done, it copies the character digits in the buffer, frees the allocated memory and returns the number of digits written. 
+### **Function print_int:**
+To print integers the function _printf () must make a conversion of each digit of the integer to a character, it does so by calling the internal function print_int, this calculates the number of digits of the integer to allocate a memory space with the same amount in bytes to a "variable" pointer to char, and to each position it assigns an integer digit in the corresponding position. Once this part is done, it copies the character digits in the buffer, frees the allocated memory and returns the number of digits written.
 
 The print_int function prototype is the next:
 **int print_int(va_list a, char *buffer, int index);**
@@ -113,8 +114,8 @@ _print ("%d",  number);
 stdout:
  12345
 
-**Function print_u_int:**
-To print unsigned integers the function _printf () must make a conversion of each digit of the integer to a character, it does so by calling the internal function print_u_int, this calculates the number of digits of the integer to allocate a memory space with the same amount in bytes to a "variable" pointer to char, and to each position it assigns an integer digit in the corresponding position. Once this part is done, it writes to the standard of this "variable", frees the allocated memory and returns the number of digits written. 
+### **Function print_u_int:**
+To print unsigned integers the function _printf () must make a conversion of each digit of the integer to a character, it does so by calling the internal function print_u_int, this calculates the number of digits of the integer to allocate a memory space with the same amount in bytes to a "variable" pointer to char, and to each position it assigns an integer digit in the corresponding position. Once this part is done, it writes to the standard of this "variable", frees the allocated memory and returns the number of digits written.
 
 The print_u_int function prototype is the next:
 **int print_u_int(va_list a, char *buffer, int index);**
@@ -124,7 +125,7 @@ _print ("%d",  number);
 stdout:
   12345
 
-**Function print_binaries**
+### **Function print_binaries**
 to print binaries the _printf () function must first receive the specifier% b that calls the print_binary function, this function saves the integer in a variable type unsigned int, after saving the integer it creates a loop that divides it by 2 until it gives us 0 to find the size in bytes of the binary, that size is saved in a malloc that will be used to save the binary in characters, finally it makes a loop so that it is saved in the buffer
 the binary number in the correct order. free up the wild memory and return the number of digits written.
 
@@ -136,7 +137,7 @@ _print ("%b", binary);
 stdout:
   1100010
 
-**Function print_octal**
+### **Function print_octal**
 To print octals, the _printf () function must first receive the specifier% or that the print_octal function calls, this function saves the integer in a variable type unsigned int, after saving the integer it creates a loop that divides it into 8 until it gives us 0 to find the size in bytes of the octal, that size is saved in a malloc that will be used to save the octal in characters, finally it makes a loop so that it is saved in the buffer the octal number in the correct order. free up the wild memory and return the number of digits written.
 
 The print_octal function prototype is the next:
