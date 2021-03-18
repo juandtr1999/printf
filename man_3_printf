@@ -15,15 +15,15 @@ SYNOPSIS
 DESCRIPTION
 
 The _printf function is a variable function that receives as a
-formal argument a constant char pointer "fortmat", writes its 
-characters "exactly the same" in the standard output using the 
-write function and returns an integer, which is the number of 
+formal argument a constant char pointer "fortmat", writes its
+characters "exactly the same" in the standard output using the
+write function and returns an integer, which is the number of
 characters that were sent. to stdout without taking null characters into account.
 
 Use format specifiers to give specific instructions of what you
 want to write. The% specifier allows you to give the location and
 the type of data you want in the stdout, this allows
-us to write in the stdout variatic arguments of different types 
+us to write in the stdout variatic arguments of different types
 of data, which are received by the function after "format ".
 
    Specifiers
@@ -107,7 +107,7 @@ stdout: Holberton
       -Function print_int:
 To print integers the function _printf () must make a conversion of each digit
 of the integer to a character, it does so by calling the internal function
-print_int, this calculates the number of digits of the integer to allocate 
+print_int, this calculates the number of digits of the integer to allocate
 a memory space with the same amount in bytes to a "variable" pointer to char,
 and to each position it assigns an integer digit in the corresponding position.
 Once this part is done, it copies the character digits in the buffer, frees
@@ -189,7 +189,7 @@ _print ("%x ", hexadecimal);
 
 _print ("%X", hexadecimal);
 
-stdout: 
+stdout:
 7e5
 7E5
 
