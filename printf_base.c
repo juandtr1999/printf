@@ -39,7 +39,7 @@ int print_binary(va_list a, char *buffer, int index)
 		i++;
 	}
 
-	for (j = i - 1; j >= 0; --j, l++)
+	for (j = i - 1; j >= 0; --j)
 	{
 		buffer[index] = k[j] + '0';
 		index += 1;
@@ -89,7 +89,7 @@ int print_octal(va_list a, char *buffer, int index)
 		i++;
 	}
 
-	for (j = i - 1; j >= 0; --j, l++)
+	for (j = i - 1; j >= 0; --j)
 	{
 		buffer[index] = k[j] + '0';
 		index += 1;
@@ -138,7 +138,7 @@ int print_x_hexal(va_list a, char *buffer, int index)
 		i++;
 	}
 
-	for (j = i - 1; j >= 0; --j, l++)
+	for (j = i - 1; j >= 0; --j)
 	{
 		if (k[j] <= 9)
 			buffer[index] = k[j] + '0';
@@ -189,7 +189,7 @@ int print_X_hexal(va_list a, char *buffer, int index)
 		i++;
 	}
 
-	for (j = i - 1; j >= 0; --j, l++)
+	for (j = i - 1; j >= 0; --j)
 	{
 		if (k[j] <= 9)
 			buffer[index] = k[j] + '0';
