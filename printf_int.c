@@ -53,6 +53,9 @@ int print_int(va_list a, char *buffer, int index)
 	len = len_dig(num);
 	convert = malloc(len);
 
+	if (convert == NULL)
+		return (0);
+
 	i = len;
 
 	if (num < 0)
