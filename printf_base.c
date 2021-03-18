@@ -10,7 +10,7 @@ int print_binary(va_list a, char *buffer, int index)
 {
 	unsigned int decimal = va_arg(a, unsigned int);
 
-	int i = 0, j, l;
+	int i = 0, j;
 	unsigned int *k;
 	unsigned int tmp = decimal;
 
@@ -60,7 +60,7 @@ int print_octal(va_list a, char *buffer, int index)
 
 	unsigned int octal = va_arg(a, unsigned int);
 
-	int i = 0, j, l;
+	int i = 0, j;
 	unsigned int *k;
 	unsigned int tmp = octal;
 
@@ -111,7 +111,7 @@ int print_octal(va_list a, char *buffer, int index)
 int print_x_hexal(va_list a, char *buffer, int index)
 {
 	unsigned int hexal = va_arg(a, unsigned int);
-	int i = 0, j, l;
+	int i = 0, j;
 	unsigned int *k;
 	unsigned int tmp = hexal;
 
@@ -162,7 +162,7 @@ int print_x_hexal(va_list a, char *buffer, int index)
 int print_X_hexal(va_list a, char *buffer, int index)
 {
 	unsigned int hexal = va_arg(a, unsigned int);
-	int i = 0, j, l;
+	int i = 0, j;
 	unsigned int *k;
 	unsigned int tmp = hexal;
 
