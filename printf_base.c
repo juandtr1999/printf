@@ -29,7 +29,7 @@ int print_binary(va_list a, char *buffer, int index)
 	k = malloc(sizeof(unsigned int) * i);
 
 	if (k == 0)
-		return (0);
+		return (-1);
 
 	i = 0;
 	while (decimal > 0)
@@ -79,7 +79,7 @@ int print_octal(va_list a, char *buffer, int index)
 	k = malloc(sizeof(unsigned int) * i);
 
 	if (k == 0)
-		return (0);
+		return (-1);
 
 	i = 0;
 	while (octal > 0)
@@ -128,7 +128,7 @@ int print_x_hexal(va_list a, char *buffer, int index)
 	k = malloc(sizeof(unsigned int) * i);
 
 	if (k == 0)
-		return (0);
+		return (-1);
 
 	i = 0;
 	while (hexal > 0)
@@ -179,7 +179,7 @@ int print_X_hexal(va_list a, char *buffer, int index)
 	k = malloc(sizeof(unsigned int) * i);
 
 	if (k == 0)
-		return (0);
+		return (-1);
 
 	i = 0;
 	while (hexal > 0)
